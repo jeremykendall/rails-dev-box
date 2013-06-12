@@ -156,3 +156,16 @@ exec { "${as_vagrant} 'gem install thin --no-rdoc --no-ri'":
 exec { "${as_vagrant} 'gem install shotgun --no-rdoc --no-ri'":
   require => Exec['install_ruby']
 }
+
+exec { "${as_vagrant} 'gem install sqlite3 --no-rdoc --no-ri'":
+  require => Exec['install_ruby']
+}
+
+exec { "${as_vagrant} 'gem install datamapper --no-rdoc --no-ri'":
+  require => Exec['install_ruby']
+}
+
+exec { "${as_vagrant} 'gem install dm-sqlite-adapter --no-rdoc --no-ri'":
+  require => Exec['install_ruby']
+}
+
