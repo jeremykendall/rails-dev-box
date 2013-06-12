@@ -1,10 +1,11 @@
-# A Virtual Machine for Ruby on Rails Core Development
+# A Virtual Machine for Ruby Development
 
 ## Introduction
 
-This project automates the setup of a development environment for working on Ruby on Rails itself. Use this virtual machine to work on a pull request with everything ready to hack and run the test suites.
-
-Please note this virtual machine is not designed to be used for Rails application development.
+This is my fork of the excellent [rails-dev-box](https://github.com/rails/rails-dev-box). 
+I required an environment to play with [Sinatra](http://www.sinatrarb.com/), 
+stole theirs, and have tweaked it to meet my needs.  This is my own playground: 
+Feel free to use it, but do so at your own risk.
 
 ## Requirements
 
@@ -16,20 +17,18 @@ Please note this virtual machine is not designed to be used for Rails applicatio
 
 Building the virtual machine is this easy:
 
-    host $ git clone https://github.com/rails/rails-dev-box.git
+    host $ git clone https://github.com/jeremykendall/rails-dev-box.git
     host $ cd rails-dev-box
     host $ vagrant up
 
 That's it.
 
-If the base box is not present that command fetches it first. The setup itself takes about 3 minutes in my MacBook Air. After the installation has finished, you can access the virtual machine with
+After the installation has finished, you can access the virtual machine with
 
     host $ vagrant ssh
     Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
     ...
     vagrant@rails-dev-box:~$
-
-Port 3000 in the host computer is forwarded to port 3000 in the virtual machine. Thus, applications running in the virtual machine can be accessed via localhost:3000 in the host computer.
 
 ## What's In The Box
 
@@ -38,6 +37,12 @@ Port 3000 in the host computer is forwarded to port 3000 in the virtual machine.
 * RVM
 
 * Ruby 2.0.0 (binary RVM install)
+
+* Sinatra
+
+* Shotgun
+
+* Thin
 
 * Bundler
 
@@ -50,29 +55,6 @@ Port 3000 in the host computer is forwarded to port 3000 in the virtual machine.
 * Node.js for the asset pipeline
 
 * Memcached
-
-## Recommended Workflow
-
-The recommended workflow is
-
-* edit in the host computer and
-
-* test within the virtual machine.
-
-Just clone your Rails fork in the very directory of the Rails development box in the host computer:
-
-    host $ ls
-    README.md   Vagrantfile puppet
-    host $ git clone git@github.com:<your username>/rails.git
-
-Vagrant mounts that very directory as _/vagrant_ within the virtual machine:
-
-    vagrant@rails-dev-box:~$ ls /vagrant
-    puppet  rails  README.md  Vagrantfile
-
-so we are ready to go to edit in the host, and test in the virtual machine.
-
-This workflow is convenient because in the host computer you normally have your editor of choice fine-tuned, Git configured, and SSH keys in place.
 
 ## Virtual Machine Management
 
